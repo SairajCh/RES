@@ -1,0 +1,5 @@
+package in.ies.utils;
+
+public class EmailUtils {
+
+}

@@ -1,0 +1,11 @@
+package in.ies.service;
+
+public class CoServiceImpl implements CoService {
+
+	@Override
+	public void processPendingTriggers() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

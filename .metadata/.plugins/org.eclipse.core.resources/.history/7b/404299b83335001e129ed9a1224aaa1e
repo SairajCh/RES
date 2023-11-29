@@ -1,0 +1,96 @@
+package in.ies.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import in.ies.bindings.EdResponse;
+import in.ies.entities.EducationEntity;
+import in.ies.entities.IncomeEntity;
+import in.ies.entities.KidEntity;
+import in.ies.entities.PlanEntity;
+import in.ies.entities.PlanSelEntity;
+import in.ies.repositories.EducationRepo;
+import in.ies.repositories.IncomeRepo;
+import in.ies.repositories.KidRepo;
+import in.ies.repositories.PlanRepo;
+import in.ies.repositories.PlanSelRepo;
+
+public class EligServiceImpl implements EligService {
+
+	@Autowired
+	private PlanSelRepo planSelRepo;
+
+	@Autowired
+	private PlanRepo planRepo;
+
+	@Autowired
+	private IncomeRepo incomeRepo;
+
+	@Autowired
+	private EducationRepo eduRepo;
+
+	@Autowired
+	private KidRepo kidRepo;
+
+	@Override
+	public EdResponse determineEligibility(Long caseNum) {
+		
+		EdResponse response = new EdResponse();
+
+		// get citizen plan name using caseNum
+		PlanSelEntity planSel = planSelRepo.findByCaseNum(caseNum);
+
+		Integer planId = planSel.getPlanId();
+
+		PlanEntity planEntity = planRepo.findById(planId).get();
+		
+		String planName = planEntity.getPlanName();
+
+		//get citizen plan info using caseNum
+		IncomeEntity incomeEntity = incomeRepo.findByCaseNum(caseNum);
+		
+		//get citizen education info using caseNum
+		EducationEntity educationEntity = eduRepo.findByCaseNum(caseNum);
+		
+		
+		//get citizen kid info using caseNum
+		List<KidEntity> kidEntities = kidRepo.findByCaseNum(caseNum);
+		
+		response.setPlanName(planName);
+		response.setCaseNum(caseNum);
+		
+		if("SNAP".equals(planName)) {
+			
+			Double salaryIncome = incomeEntity.getSalaryIncome();
+			if (salaryIncome>300) {
+				
+				response.setPlanStatus("DN");
+				response.setDenialRsn("High salary Income");
+
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+
+	@Override
+	public boolean generateCo(Long caseNum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

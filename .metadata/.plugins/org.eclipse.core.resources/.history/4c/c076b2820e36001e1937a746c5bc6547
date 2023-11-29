@@ -1,0 +1,13 @@
+package in.ies.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import in.ies.entities.CoNoticeEntity;
+
+public interface CoNoticeRepo extends JpaRepository<CoNoticeEntity,Integer> {
+	
+	public List<CoNoticeEntity> findByNoticeStatus(String status);
+
+}

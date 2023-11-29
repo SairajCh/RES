@@ -1,0 +1,25 @@
+package in.ies.entities;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CO_NOTICES")
+public class CoNoticeEntity {
+
+	private Integer noticeId;
+	
+	private Long caseNum;
+	
+	private String noticeStatus;
+	
+	private String noticeUrl;
+	
+	private Integer edgTraceId;
+	
+	private LocalDate noticePrintDate;
+	
+	
+}

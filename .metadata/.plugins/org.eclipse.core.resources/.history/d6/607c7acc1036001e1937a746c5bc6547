@@ -1,0 +1,101 @@
+package in.ies.service;
+
+import java.io.File;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+import in.ies.repositories.CoTrgRepo;
+import in.ies.repositories.EligRepo;
+import in.ies.utils.EmailUtils;
+
+public class CoServiceImpl implements CoService {
+
+	@Autowired
+	private CoTrgRepo coTrgRepo;
+
+	@Autowired
+	private EligRepo eligRepo;
+	
+	@Autowired
+	private EmailUtils emailUtils;
+
+	@Override
+	public CoResponse processPendingTriggers() {
+		// get all the pending records fro table
+     List<CoTriggerEntity> pendingTrgs = coTrgRepo.findByTrgStatus("Pending");
+		
+
+		for (CoTriggerEntity entity : pendingTrgs) {
+
+			processEachRecord(entity);
+		}
+		
+		return null;
+
+	}
+
+	private void processEachRecord(CoTriggerEntity entity) {
+		Long caseNum = entity.getCaseNum();
+
+		// get eligibility data
+
+		EligEntity elig = eligRepo.findByCaseNum(caseNum);
+
+		String planStatus = elig.getPlanStatus();
+
+		File pdfFile = null;
+		
+		if ("AP".equals(planStatus)) {
+			 pdfFile = generateApprovedNotice(elig);
+
+		} else if ("DN".equals(planStatus)) {
+
+			pdfFile = generateDeniedNotice(elig);
+		}
+		
+		String fileUrl = storePdfInS3(pdfFile);
+		
+		boolean isUpdated = updateProcessedRecord(entity,fileUrl);
+		
+		if(isUpdated) {
+			
+			emailUtils.sendEmail("", "", "",pdfFile);
+		}
+		
+		
+
+	}
+
+	private boolean updateProcessedRecord(CoTriggerEntity entity, String fileUrl) {
+		//set status as completed
+		
+		//set Notice s3 object url
+		
+		// update record in db
+		return false;
+	}
+
+	private File generateApprovedNotice(EligEntity elig) {
+
+		// generate PDF file
+
+		return null;
+	}
+
+	private File generateDeniedNotice(EligEntity elig) {
+
+		return null;
+
+	}
+	
+	
+	private String storePdfInS3(File pdfFile) {
+		// logic store in s3
+		
+		return null;
+		
+	}
+
+}

@@ -1,0 +1,34 @@
+package in.ies.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import in.ies.entities.CoNoticeEntity;
+import in.ies.repositories.CoNoticeRepo;
+
+public class CoServiceImpl implements CoService {
+	
+	@Autowired
+	private CoNoticeRepo noticeRepo;
+
+	@Override
+	public void processPendingTriggers() {
+		// get all the pending records from Co_notices table
+		
+		List<CoNoticeEntity> records = noticeRepo.findByNoticeStatus("P");
+		
+		
+
+	}
+
+	
+	private void processEachRecord(CoNoticeEntity entity) {
+		Long caseNum = entity.getCaseNum();
+
+		// get eligibility data
+		
+		
+	
+	}
+}

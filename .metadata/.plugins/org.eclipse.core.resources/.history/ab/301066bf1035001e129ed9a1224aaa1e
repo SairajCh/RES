@@ -1,0 +1,22 @@
+package in.ies.bindings;
+
+import java.time.LocalDate;
+
+public class EdResponse {
+	
+	private Long caseNum;
+	
+	private String planName;
+
+	private String planStatus;
+
+	private Double benefitAmt;
+
+	private LocalDate eligStartDae;
+
+	private LocalDate eligEndDate;
+
+	private String denialRsn;
+	
+
+}

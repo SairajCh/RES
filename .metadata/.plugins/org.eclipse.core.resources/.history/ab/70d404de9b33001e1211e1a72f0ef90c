@@ -1,0 +1,12 @@
+package in.ies.binding;
+
+public class PlanSelection {
+
+	private Integer caseNum;
+	
+	private Integer planId;
+	
+	private Integer userId;
+	
+	
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Admin_API"/>
+<aop-project name="05_CO_API"/>
+<aop-project name="02_AR_API"/>
+<aop-project name="03_DC_API"/>
+<aop-project name="04_ED_API"/>
+</aop-reference-model>

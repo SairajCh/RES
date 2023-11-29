@@ -1,0 +1,16 @@
+package in.ies.binding;
+
+import java.time.LocalDate;
+
+public class Kid {
+
+	private Integer caseNum;
+	
+	private Integer userId;
+	
+	private String Kidname;
+	
+	private LocalDate kidDob;
+	
+	private Long kidSsn;
+}

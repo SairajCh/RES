@@ -1,0 +1,19 @@
+package in.ies.service;
+
+import in.ies.bindings.EdResponse;
+
+public class EligServiceImpl implements EligService {
+
+	@Override
+	public EdResponse determineEligibility(Long caseNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean generateCo(Long caseNum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

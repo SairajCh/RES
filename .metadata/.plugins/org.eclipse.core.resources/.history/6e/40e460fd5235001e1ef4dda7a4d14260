@@ -1,0 +1,5 @@
+package in.ies;
+
+public interface CoService {
+
+}

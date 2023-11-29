@@ -1,0 +1,19 @@
+package in.ies.service;
+
+import java.util.List;
+
+import in.ies.bindings.EdResponse;
+
+public interface EligService {
+
+	
+	public EdResponse determineEligibility(Long caseNum);
+	
+	public List<CdResponse> generateCo(Long caseNum);
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,14 @@
+package in.ies.binding;
+
+public class DCSummary {
+
+	private Income income;
+	
+	private Education education;
+	
+	private Kids kids;
+	
+	
+	
+	
+}

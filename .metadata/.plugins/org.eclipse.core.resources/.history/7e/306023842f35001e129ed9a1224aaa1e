@@ -1,0 +1,41 @@
+package in.ies.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import in.ies.bindings.EdResponse;
+import in.ies.entities.PlanEntity;
+import in.ies.entities.PlanSelEntity;
+import in.ies.repositories.PlanRepo;
+import in.ies.repositories.PlanSelRepo;
+
+public class EligServiceImpl implements EligService {
+
+	@Autowired
+	private PlanSelRepo planSelRepo;
+	
+	@Autowired
+	private PlanRepo planRepo;
+	
+	@Override
+	public EdResponse determineEligibility(Long caseNum) {
+		
+		PlanSelEntity planSel = planSelRepo.findByCaseNum(caseNum);
+		
+		Integer planId = planSel.getPlanId();
+		
+		PlanEntity planEntity = planRepo.findById(planId).get();
+		String planName = planEntity.getPlanName();
+		
+		
+				
+		
+		return null;
+	}
+
+	@Override
+	public boolean generateCo(Long caseNum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

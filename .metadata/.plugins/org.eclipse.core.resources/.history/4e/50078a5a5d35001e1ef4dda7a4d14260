@@ -1,0 +1,8 @@
+package in.ies.entities;
+
+import javax.persistence.Entity;
+
+@Entity
+public class CoNoticeEntity {
+
+}

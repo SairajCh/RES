@@ -1,0 +1,18 @@
+package in.ies.binding;
+
+public class Education {
+
+
+	private Integer caseNum;
+	
+	private Integer userId;
+	
+	private String highestIncome;
+	
+	private Integer graduationYear;
+	
+	private String uniName;
+
+}
+
+

@@ -1,0 +1,9 @@
+package in.ies.service;
+
+public interface CoService {
+
+	public void processPendingTriggers();
+	
+	 
+	
+}

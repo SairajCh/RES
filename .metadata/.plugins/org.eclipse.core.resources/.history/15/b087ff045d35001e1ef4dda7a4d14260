@@ -1,0 +1,5 @@
+package in.ies.repositories;
+
+public interface CoNoticeRepo {
+
+}

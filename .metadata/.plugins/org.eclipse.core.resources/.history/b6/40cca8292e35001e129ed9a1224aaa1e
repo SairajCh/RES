@@ -1,0 +1,26 @@
+package in.ies.service;
+
+import in.ies.bindings.EdResponse;
+import in.ies.entities.PlanSelEntity;
+import in.ies.repositories.PlanSelRepo;
+
+public class EligServiceImpl implements EligService {
+
+	private PlanSelRepo planSelRepo;
+	
+	@Override
+	public EdResponse determineEligibility(Long caseNum) {
+		
+		PlanSelEntity planSel = planSelRepo.findByCaseNum(caseNum);
+		
+		
+		return null;
+	}
+
+	@Override
+	public boolean generateCo(Long caseNum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

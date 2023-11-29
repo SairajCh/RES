@@ -1,0 +1,21 @@
+package in.ies.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import in.ies.service.CoService;
+
+public class CoBatchRestController {
+	
+	@Autowired
+	private CoService service;
+	
+	@GetMapping("/process")
+	public String processTriggers() throws Exception {
+		
+		return service.processPendingTriggers();
+
+		
+	}
+
+}

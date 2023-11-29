@@ -1,0 +1,19 @@
+package in.ies.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import in.ies.repositories.CoNoticeRepo;
+
+public class CoServiceImpl implements CoService {
+	
+	@Autowired
+	private CoNoticeRepo CoNoticeRepo;
+
+	@Override
+	public void processPendingTriggers() {
+		// get all the pending records from Co_notices table
+		
+
+	}
+
+}

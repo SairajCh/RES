@@ -1,0 +1,10 @@
+package in.ies.binding;
+
+import java.util.List;
+
+public class Kids {
+
+	private List<Kids> kidsList; 
+
+
+}
